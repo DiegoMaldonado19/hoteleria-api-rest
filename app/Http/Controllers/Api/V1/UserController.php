@@ -52,7 +52,7 @@ class UserController extends Controller
             ], 200);
         } else {
             return response()->json([
-                "message" => "User not found"
+                "message" => "Usuario no encontrado"
             ], 404);
         }
     }
@@ -69,11 +69,11 @@ class UserController extends Controller
             $user->password =  is_null($request->password) ? $user->password : Hash::make($request->password);
             $user->save();
             return response()->json([
-                "message" => "User updated"
+                "message" => "Usuario actualizado"
             ], 200);
         } else {
             return response()->json([
-                "message" => "User not found"
+                "message" => "Usuario no encontrado"
             ], 404);
         }
     }
@@ -85,14 +85,14 @@ class UserController extends Controller
     {
         if(User::where('id', $id)->exists()){
             $user = User::find($id);
-            $use->delete();
+            $user->delete();
 
             return response()->json([
-                "message" => "user deleted"
+                "message" => "Usuario eliminado"
             ], 202);
         } else {
             return response()->json([
-                "message" => "user not found"
+                "message" => "Usuario no encontrado"
             ], 404);
         }
     }
