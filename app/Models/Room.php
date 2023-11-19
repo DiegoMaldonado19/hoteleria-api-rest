@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
+    protected $table = 'room';
+
     protected $fillable = [
         'rate',
         'available',
