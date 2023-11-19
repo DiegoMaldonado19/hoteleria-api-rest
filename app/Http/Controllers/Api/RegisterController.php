@@ -15,7 +15,7 @@ class RegisterController extends Controller
         $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        if($request->employee_id){
+        if(!empty($request->employee_id)){
             $user->employee_id = $request->employee_id;
         }
         else {
@@ -25,6 +25,6 @@ class RegisterController extends Controller
         $user->save();
         return response()->json([
             'Message' => 'Usuario creado con exito'
-        ], 200);
+        ], 201);
     }
 }
