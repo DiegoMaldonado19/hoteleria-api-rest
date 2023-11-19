@@ -28,6 +28,7 @@ CREATE TABLE Employee(
 CREATE TABLE Users(
     id SERIAL,
     username VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL,
     employee_id bigint,
     user_role_id bigint NOT NULL,
@@ -85,9 +86,11 @@ CREATE TABLE Reservation(
     check_out_date timestamp NOT NULL,
     created_by_customer boolean NOT NULL,
     transaction_id bigint NOT NULL,
+    employee_id bigint,
     user_id bigint NOT NULL,
     room_id bigint NOT NULL,
     PRIMARY KEY(id),
+    FOREIGN KEY(employee_id) REFERENCES Employee(id),
     FOREIGN KEY(user_id) REFERENCES Users(id),
     FOREIGN KEY(room_id) REFERENCES Room(id),
     FOREIGN KEY(transaction_id) REFERENCES Transaction(id)
