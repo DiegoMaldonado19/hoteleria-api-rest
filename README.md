@@ -30,6 +30,10 @@ En resumen, es un CRUD Básico, que maneja Roles para los usuarios y maneja Aute
 
 ## Descripción Tecnologías:
 
+* PHP:
+
+Es el lenguaje que usamos para la creación de este proyecto, que contiene metodos, paquetes, directivas y extensiones propias del lenguaje. De las cuales nos apoyamos para la implementación del codigo.
+
 * Laravel Framework:
 
 Se utilizó por su facilidad para mapear base de datos y los metodos ORM que implementa, para poder realizar consultas a las tablas de manera sencilla. Así mismo, es uno de los Frameworks más populares de PHP.
