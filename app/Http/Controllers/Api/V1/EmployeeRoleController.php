@@ -13,7 +13,8 @@ class EmployeeRoleController extends Controller
      */
     public function index()
     {
-        //
+        $employeeRole = EmployeeRole::all();
+        return response()->json($employeeRole);
     }
 
     /**
@@ -21,30 +22,69 @@ class EmployeeRoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employeeRole = new EmployeeRole;
+        $employeeRole->name = $request->name;
+        $employeeRole->save();
+
+        return response()->json([
+            "Message" => "Rol creado con exito"
+        ], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(EmployeeRole $employeeRole)
+    public function show($id)
     {
-        //
+        $employeeRole = EmployeeRole::find($id);
+
+        if( !empty($employeeRole) ){
+            return response()->json([
+                $employeeRole
+            ], 200);
+        } else {
+            return response()->json([
+                "Message" => "Rol no encontrado"
+            ], 404);
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EmployeeRole $employeeRole)
+    public function update(Request $request, $id)
     {
-        //
+        if( EmployeeRole::where('id', $id)->exists() ){
+            $employeeRole = EmployeeRole::find($id);
+            $employeeRole->name = is_null($request->name) ? $employeeRole->name : $request->name;
+            $employeeRole->save();
+
+            return response()->json([
+                "Message" => "Rol actualizado"
+            ], 200);
+        } else {
+            return response()->json([
+                "Message" => "Rol no encontrado"
+            ], 404);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EmployeeRole $employeeRole)
+    public function destroy($id)
     {
-        //
+        if( EmployeeRole::where('id', $id)->exist() ){
+            $employeeRole = EmployeeRole::find($id);
+            $employeeRole->delete();
+
+            return response()->json([
+                "Message" => "Rol eliminado"
+            ], 202);
+        } else {
+            return response()->json([
+                "Message" => "Rol no encontrado"
+            ], 404);
+        }
     }
 }
