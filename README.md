@@ -61,7 +61,7 @@ Por defecto contamos con los siguientes Endpoints para poder interactuar con las
 * v1/user
 * v1/user-role
 
-Ejemplos de Endopoints que pueden consumir con su metodo HTTP:
+Ejemplos de Endpoints que pueden consumir con su metodo HTTP:
 
 * get: 'v1/user' -> Sirve para obtener todos los usuarios en los registros
 * get: 'v1/user/{id}' -> Sirve para obtener un usuario en especifico
@@ -80,12 +80,12 @@ En este momento todo se maneja en un entorno de desarrollo local, por lo cual el
 
 * http://127.0.0.1:8000/[Endpoint]
 
-Con esto deberian poder consumir la API siempre y cuando este corriendo.
+Con esto deberian poder consumir la API, siempre y cuando este corriendo.
 
 ## Comando para iniciar proyecto:
 
 * php artisan serve
 
-Con este comando iniciaron el servidor de laravel localmente.
+Con este comando pueden iniciar el servidor de laravel localmente.
 
 
