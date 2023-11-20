@@ -1,6 +1,6 @@
 CREATE DATABASE hotel;
 
-\c hotel; /* Para usar base de datos hotel */
+/*  \c hotel; Para usar base de datos hotel */
 
 CREATE TABLE EmployeeRole(
     id SERIAL,
