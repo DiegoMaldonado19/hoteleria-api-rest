@@ -46,6 +46,17 @@ Su función principal es la Autenticación y creación de tokens para los usuari
 
 Es uno de los motores de Bases de Datos más populares en la actualidad, ya que se puede instalar en cualquier OS y contiene funcionalidades poderosas, que permiten realizar sistemas escalables.
 
+## Creacion de Base de Datos:
+
+* Pueden crear la base de datos usando el dump que se encuentra dentro de la carpeta "SQL Script" dentro de la carpeta raiz.
+
+* Luego será necesario que corran los siguietes comandos:
+
+    * php artisan migrate --path=Database/Migrations/2014_10_12_100000_create_password_reset_tokens_table.php
+    * php artisan migrate --path=Database/Migrations/2019_12_14_000001_create_personal_access_tokens_table.php
+
+Esto lo haremos para crear las tablas que son necesarias para tener el token de autenticacion de nuestra API y asi poder acceder a los Endpoints protegidos.
+
 ## Rutas de la REST API:
 
 Por defecto contamos con los siguientes Endpoints para poder interactuar con las tablas de nuestra base de datos:
