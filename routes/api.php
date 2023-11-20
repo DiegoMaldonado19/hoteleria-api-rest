@@ -26,45 +26,65 @@ use  App\Http\Controllers\Api\v1\UserRoleController as UserRoleV1;
 */
 
 /* Rutas para la version V1 */
-Route::apiResource('v1/employee', EmployeeV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get('v1/employee', [EmployeeV1::class, 'index'])->middleware('auth:sanctum');
+Route::get('v1/employee/{id}', [EmployeeV1::class, 'show'])->middleware('auth:sanctum');
+Route::post('v1/employee', [EmployeeV1::class, 'store'])->middleware('auth:sanctum');
+Route::put('v1/employee/{id}', [EmployeeV1::class, 'update'])->middleware('auth:sanctum');
+Route::delete('v1/employee/{id}', [EmployeeV1::class, 'destroy'])->middleware('auth:sanctum');
 
-Route::apiResource('v1/employee-role', EmployeeRoleV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get('v1/employee-role', [EmployeeRoleV1::class, 'index'])->middleware('auth:sanctum');
+Route::get('v1/employee-role/{id}', [EmployeeRoleV1::class, 'show'])->middleware('auth:sanctum');
+Route::post('v1/employee-role', [EmployeeRoleV1::class, 'store'])->middleware('auth:sanctum');
+Route::put('v1/employee-role/{id}', [EmployeeRoleV1::class, 'update'])->middleware('auth:sanctum');
+Route::delete('v1/employee-role/{id}', [EmployeeRoleV1::class, 'destroy'])->middleware('auth:sanctum');
 
-Route::apiResource('v1/reservation', ReservationV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get('v1/reservation', [ReservationV1::class, 'index'])->middleware('auth:sanctum');
+Route::get('v1/reservation/{id}', [ReservationV1::class, 'show'])->middleware('auth:sanctum');
+Route::post('v1/reservation', [ReservationV1::class, 'store'])->middleware('auth:sanctum');
+Route::put('v1/reservation/{id}', [ReservationV1::class, 'update'])->middleware('auth:sanctum');
+Route::delete('v1/reservation/{id}', [ReservationV1::class, 'destroy'])->middleware('auth:sanctum');
 
-Route::apiResource('v1/room', RoomV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get( 'v1/room' ,[RoomV1::class, 'index'])->middleware('auth:sanctum');
+Route::get( 'v1/room/{id}' ,[RoomV1::class, 'show'])->middleware('auth:sanctum');
+Route::post( 'v1/room' ,[RoomV1::class, 'store'])->middleware('auth:sanctum');
+Route::put( 'v1/room/{id}' ,[RoomV1::class, 'update'])->middleware('auth:sanctum');
+Route::delete( 'v1/room/{id}' ,[RoomV1::class, 'destroy'])->middleware('auth:sanctum');
 
-Route::apiResource('v1/room-type', RoomTypeV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get( 'v1/room-type' ,[RoomTypeV1::class, 'index'])->middleware('auth:sanctum');
+Route::get( 'v1/room-type/{id}' ,[RoomTypeV1::class, 'show'])->middleware('auth:sanctum');
+Route::post( 'v1/room-type' ,[RoomTypeV1::class, 'store'])->middleware('auth:sanctum');
+Route::put( 'v1/room-type/{id}' ,[RoomTypeV1::class, 'update'])->middleware('auth:sanctum');
+Route::delete( 'v1/room-type/{id}' ,[RoomTypeV1::class, 'destroy'])->middleware('auth:sanctum');
 
-Route::apiResource('v1/task', TaskV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get( 'v1/task', [TaskV1::class, 'index'] )->middleware('auth:sanctum');
+Route::get( 'v1/task/{id}', [TaskV1::class, 'show'] )->middleware('auth:sanctum');
+Route::post( 'v1/task', [TaskV1::class, 'store'] )->middleware('auth:sanctum');
+Route::put( 'v1/task/{id}', [TaskV1::class, 'update'] )->middleware('auth:sanctum');
+Route::delete( 'v1/task/{id}', [TaskV1::class, 'destroy'] )->middleware('auth:sanctum');
 
-Route::apiResource('v1/transaction', TransactionV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get( 'v1/transaction', [TransactionV1::class, 'index'] )->middleware('auth:sanctum');
+Route::get( 'v1/transaction/{id}', [TransactionV1::class, 'show'] )->middleware('auth:sanctum');
+Route::post( 'v1/transaction', [TransactionV1::class, 'store'] )->middleware('auth:sanctum');
+Route::put( 'v1/transaction/{id}', [TransactionV1::class, 'update'] )->middleware('auth:sanctum');
+Route::delete( 'v1/transaction/{id}', [TransactionV1::class, 'destroy'] )->middleware('auth:sanctum');
 
-Route::apiResource('v1/transaction-type', TransactionTypeV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get( 'v1/transaction-type', [TransactionTypeV1::class, 'index'] )->middleware('auth:sanctum');
+Route::get( 'v1/transaction-type/{id}', [TransactionTypeV1::class, 'show'] )->middleware('auth:sanctum');
+Route::post( 'v1/transaction-type', [TransactionTypeV1::class, 'store'] )->middleware('auth:sanctum');
+Route::put( 'v1/transaction-type/{id}', [TransactionTypeV1::class, 'update'] )->middleware('auth:sanctum');
+Route::delete( 'v1/transaction-type/{id}', [TransactionTypeV1::class, 'destroy'] )->middleware('auth:sanctum');
 
-Route::apiResource('v1/user', UserV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get( 'v1/user', [UserV1::class, 'index'] )->middleware('auth:sanctum');
+Route::get( 'v1/user/{id}', [UserV1::class, 'show'] )->middleware('auth:sanctum');
+Route::post( 'v1/user', [UserV1::class, 'store'] )->middleware('auth:sanctum');
+Route::put( 'v1/user/{id}', [UserV1::class, 'update'] )->middleware('auth:sanctum');
+Route::delete( 'v1/user/{id}', [UserV1::class, 'destroy'] )->middleware('auth:sanctum');
 
-Route::apiResource('v1/user-role', UserRoleV1::class)
-->only(['index', 'store', 'show', 'update', 'destroy'])
-->middleware('auth:sanctum');
+Route::get( 'v1/user-role', [UserV1::class, 'index'] )->middleware('auth:sanctum');
+Route::get( 'v1/user-role/{id}', [UserV1::class, 'show'] )->middleware('auth:sanctum');
+Route::post( 'v1/user-role', [UserV1::class, 'store'] )->middleware('auth:sanctum');
+Route::put( 'v1/user-role/{id}', [UserV1::class, 'update'] )->middleware('auth:sanctum');
+Route::delete( 'v1/user-role/{id}', [UserV1::class, 'destroy'] )->middleware('auth:sanctum');
 /* Final de Rutas para la version V1 */
 
 Route::post('login', [

@@ -61,6 +61,14 @@ Por defecto contamos con los siguientes Endpoints para poder interactuar con las
 * v1/user
 * v1/user-role
 
+Ejemplos de Endopoints que pueden consumir con su metodo HTTP:
+
+* get: 'v1/user' -> Sirve para obtener todos los usuarios en los registros
+* get: 'v1/user/{id}' -> Sirve para obtener un usuario en especifico
+* post: 'v1/user' -> sirve para crear un nuevo usuario
+* put: 'v1/user/{id}' -> sirve para actualizar un usuario que se encuentra dentro del sistema
+* delete: 'v1/user/{id}' -> sirve para eliminar un usuario que se encuentra en los registros
+
 Estas se encuentran dentro de la version 1 de nuestra API, esto se hizo asi para poder tener un sistema escalable, y poder crear una version 2 en un futuro mejorando el comportamiento de nuestro sistema con nuevos requerimientos. Estas rutas se encuentran protegidas, ya que requieren Autenticación del usuario para interactuar con ellas.
 
 * login
