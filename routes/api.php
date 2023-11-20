@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 use  App\Http\Controllers\Api\v1\EmployeeController as EmployeeV1;
 use  App\Http\Controllers\Api\v1\EmployeeRoleController as EmployeeRoleV1;
@@ -96,3 +97,18 @@ Route::post('register', [
     App\Http\Controllers\Api\RegisterController::class,
     'register'
 ]);
+
+Route::get('actualizar-contrasenas', function () {
+    $users = User::all();
+
+    foreach ($users as $user) {
+        // Verifica si la contraseña no está cifrada con Bcrypt
+        if (Hash::needsRehash($user->password)) {
+            // Actualiza la contraseña con Bcrypt
+            $user->password = bcrypt($user->password);
+            $user->save();
+        }
+    }
+
+    return 'Contraseñas actualizadas correctamente';
+});

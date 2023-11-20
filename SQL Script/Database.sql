@@ -5,12 +5,16 @@ CREATE DATABASE hotel;
 CREATE TABLE EmployeeRole(
     id SERIAL,
     name VARCHAR(25) NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id)
 );
 
 CREATE TABLE UserRole(
     id SERIAL,
     name VARCHAR(25) NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id)
 );
 
@@ -21,6 +25,8 @@ CREATE TABLE Employee(
     employee_role_id bigint NOT NULL,
     shift_start_time TIME NOT NULL,
     shift_end_time TIME NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id),
     FOREIGN KEY(employee_role_id) REFERENCES EmployeeRole(id)
 );
@@ -32,6 +38,8 @@ CREATE TABLE Users(
     password VARCHAR(100) NOT NULL,
     employee_id bigint,
     user_role_id bigint NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id),
     FOREIGN KEY(employee_id) REFERENCES Employee(id),
     FOREIGN KEY(user_role_id) REFERENCES UserRole(id)
@@ -43,6 +51,8 @@ CREATE TABLE Task(
     task_description VARCHAR(255) NOT NULL,
     task_date timestamp NOT NULL,
     task_completed boolean NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id),
     FOREIGN KEY(employee_id) REFERENCES Employee(id)
 );
@@ -51,6 +61,8 @@ CREATE TABLE RoomType(
     id SERIAL,
     name VARCHAR(100) NOT NULL,
     price Decimal(10,2) NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id)
 );
 
@@ -59,6 +71,8 @@ CREATE TABLE Room(
     rate DECIMAL(3, 2) NOT NULL,
     available boolean NOT NULL,
     room_type bigint NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id),
     FOREIGN KEY(room_type) REFERENCES RoomType(id)
 );
@@ -66,6 +80,8 @@ CREATE TABLE Room(
 CREATE TABLE TransactionType(
     id SERIAL,
     name VARCHAR(50) NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id)
 );
 
@@ -75,6 +91,8 @@ CREATE TABLE Transaction(
     transaction_type bigint NOT NULL,
     transaction_date timestamp NOT NULL,
     amount Decimal(10, 2) NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id),
     FOREIGN KEY(employee_id) REFERENCES Employee(id),
     FOREIGN KEY(transaction_type) REFERENCES TransactionType(id)
@@ -89,6 +107,8 @@ CREATE TABLE Reservation(
     employee_id bigint,
     user_id bigint NOT NULL,
     room_id bigint NOT NULL,
+    updated_at timestamp,
+    created_at timestamp,
     PRIMARY KEY(id),
     FOREIGN KEY(employee_id) REFERENCES Employee(id),
     FOREIGN KEY(user_id) REFERENCES Users(id),
