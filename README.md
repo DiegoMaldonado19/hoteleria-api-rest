@@ -82,14 +82,15 @@ Ejemplos de Endpoints que pueden consumir con su metodo HTTP:
 
 Estas se encuentran dentro de la version 1 de nuestra API, esto se hizo asi para poder tener un sistema escalable, y poder crear una version 2 en un futuro mejorando el comportamiento de nuestro sistema con nuevos requerimientos. Estas rutas se encuentran protegidas, ya que requieren Autenticación del usuario para interactuar con ellas.
 
-* login
-* register
+* login (Sirve para realizar el login)
+* register (Sirve para registrar un usuario)
+* profile (Sirve para obtener un usuario en base a su token)
 
 Estas últimas dos rutas vienen por defecto para cualquier version de nuestra API. No se encuentra protegidas por Autenticación, por lo cual, cualquier puede interactuar con ellas.
 
 En este momento todo se maneja en un entorno de desarrollo local, por lo cual el acceso a nuestros Endpoints seria de la siguiente manera: 
 
-* http://127.0.0.1:8000/[Endpoint]
+* http://127.0.0.1:8000/api/[Endpoint]
 
 Con esto deberian poder consumir la API, siempre y cuando este corriendo.
 
