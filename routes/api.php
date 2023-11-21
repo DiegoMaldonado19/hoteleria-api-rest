@@ -6,7 +6,7 @@ use App\Models\User;
 
 use  App\Http\Controllers\Api\v1\EmployeeController as EmployeeV1;
 use  App\Http\Controllers\Api\v1\EmployeeRoleController as EmployeeRoleV1;
-use  App\Http\Controllers\Api\v2\ReservationController as ReservationV1;
+use  App\Http\Controllers\Api\v1\ReservationController as ReservationV1;
 use  App\Http\Controllers\Api\v1\RoomController as RoomV1;
 use  App\Http\Controllers\Api\v1\RoomTypeController as RoomTypeV1;
 use  App\Http\Controllers\Api\v1\TaskController as TaskV1;
@@ -81,11 +81,11 @@ Route::post( 'v1/user', [UserV1::class, 'store'] )->middleware('auth:sanctum');
 Route::put( 'v1/user/{id}', [UserV1::class, 'update'] )->middleware('auth:sanctum');
 Route::delete( 'v1/user/{id}', [UserV1::class, 'destroy'] )->middleware('auth:sanctum');
 
-Route::get( 'v1/user-role', [UserV1::class, 'index'] )->middleware('auth:sanctum');
-Route::get( 'v1/user-role/{id}', [UserV1::class, 'show'] )->middleware('auth:sanctum');
-Route::post( 'v1/user-role', [UserV1::class, 'store'] )->middleware('auth:sanctum');
-Route::put( 'v1/user-role/{id}', [UserV1::class, 'update'] )->middleware('auth:sanctum');
-Route::delete( 'v1/user-role/{id}', [UserV1::class, 'destroy'] )->middleware('auth:sanctum');
+Route::get( 'v1/user-role', [UserRoleV1::class, 'index'] )->middleware('auth:sanctum');
+Route::get( 'v1/user-role/{id}', [UserRoleV1::class, 'show'] )->middleware('auth:sanctum');
+Route::post( 'v1/user-role', [UserRoleV1::class, 'store'] )->middleware('auth:sanctum');
+Route::put( 'v1/user-role/{id}', [UserRoleV1::class, 'update'] )->middleware('auth:sanctum');
+Route::delete( 'v1/user-role/{id}', [UserRoleV1::class, 'destroy'] )->middleware('auth:sanctum');
 /* Final de Rutas para la version V1 */
 
 Route::post('login', [
