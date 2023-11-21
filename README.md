@@ -86,7 +86,7 @@ Estas se encuentran dentro de la version 1 de nuestra API, esto se hizo asi para
 * register (Sirve para registrar un usuario)
 * profile (Sirve para obtener un usuario en base a su token)
 
-Estas últimas dos rutas vienen por defecto para cualquier version de nuestra API. No se encuentra protegidas por Autenticación, por lo cual, cualquier puede interactuar con ellas.
+Estas últimas tres rutas vienen por defecto para cualquier version de nuestra API. No se encuentra protegidas por Autenticación, por lo cual, cualquier puede interactuar con ellas.
 
 En este momento todo se maneja en un entorno de desarrollo local, por lo cual el acceso a nuestros Endpoints seria de la siguiente manera: 
 
